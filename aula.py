@@ -1,23 +1,33 @@
-frase = 'O Python é uma linguagem de programação multiparadigma. Python foi criado por Guido van Rossum.'
+import os
 
-i = 0
+palavra_secreta = 'floresta'
+letras_acertadas = ''
+numero_tentativas = 0
 
-qtd_apareceu_mais_vezes = 0
-letra_apareceu_mais_vezes = ''
-
-while i < len(frase):
-    letra_atual = frase[i]
-
-    if letra_atual == ' ':
-        i += 1
+while True: 
+    letra_digitada = input('Digite uma letra: ')
+    numero_tentativas += 1
+    
+    if len(letra_digitada) > 1:
+        print('Digite apenas uma letra')
         continue
 
-    qtd_apareceu_mais_vezes_atual = frase.count(letra_atual)
+    if letra_digitada in palavra_secreta:
+        letras_acertadas += letra_digitada
 
-    if qtd_apareceu_mais_vezes < qtd_apareceu_mais_vezes_atual:
-        qtd_apareceu_mais_vezes = qtd_apareceu_mais_vezes_atual
-        letra_apareceu_mais_vezes = letra_atual
+    palavra_formatada = ''
+    for i in palavra_secreta:
+        if i in letras_acertadas:
+            palavra_formatada += i
+        else:
+            palavra_formatada += '*'
+        
+    print('Palavra formada: ', palavra_formatada)
 
-    i += 1
-
-print(f' A letra que apareceu mais vezes foi: "{letra_apareceu_mais_vezes}" que apareceu {qtd_apareceu_mais_vezes} vezes')
+    if palavra_formatada == palavra_secreta:
+        os.system('clear')
+        print('VOCÊ GANHOUUU!! PARABÉNS')
+        print('A palavra era:', palavra_secreta)
+        print('Tentativas:', numero_tentativas)
+        letras_acertadas = ''
+        numero_tentativas = 0
