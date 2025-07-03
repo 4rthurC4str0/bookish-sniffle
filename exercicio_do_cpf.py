@@ -1,20 +1,9 @@
 # CPF: 746.824.890-70
-import sys
-cpf_enviado_usuario = '746.824.890-70'\
-    .replace('.', '')\
-    .replace('-', '')\
-    .replace(' ', '')
+import random
 
-entrada_e_sequencial = cpf_enviado_usuario == cpf_enviado_usuario[0] * len(cpf_enviado_usuario)
-
-if entrada_e_sequencial == True:
-    print('Você enviou dados sequenciais')
-    sys.exit()
-
-
-
-
-nove_digitos = cpf_enviado_usuario[:9]
+nove_digitos = ''
+for i in range(9):
+    nove_digitos += str(random.randint(0, 9))
 
 contador_regressivo_1 = 10
 digitos_somados_1 = 0
@@ -40,7 +29,4 @@ segundo_digito = segundo_digito if segundo_digito <= 9 else 0
 
 cpf_gerado_calculo = f'{nove_digitos}{primeiro_digito}{segundo_digito}'
 
-if cpf_enviado_usuario == cpf_gerado_calculo:
-    print(f'{cpf_enviado_usuario} é válido!')
-else:
-    print(f'{cpf_enviado_usuario} não é válido')
+print(cpf_gerado_calculo)
