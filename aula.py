@@ -9,6 +9,8 @@ def parametros_decorador(nome):
         return sua_nova_funcao
     return decorador
 
+#testando git e github
+
 #cada decorador retorna uma nova função "embrulhada", que ao ser chamada retorna a função original adiconando algo novo
 
 # é como se eu passase para o decorador_5, o decorador_4 e assim..
