@@ -1,3 +1,1 @@
-print('teste')
-print('teste2')
-print("teste3")
+print("testando github no biglinux")
