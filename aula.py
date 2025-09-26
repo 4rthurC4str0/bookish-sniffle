@@ -1,1 +1,1 @@
-print("testando github no biglinux")
+print("Agora é no hyprland")
